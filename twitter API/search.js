@@ -19,7 +19,7 @@ var handleAPIResponse = function(response) {
   for(var i = 0; i < response.list.length; i++){
 	  
       var video = response.list[i];
-	  var thumbnail = video.thumbnail_360_url.substring(0,4) + "s" + video.thumbnail_360_url.substring(5,video.thumbnail_360_url.length);
+	  var thumbnail = video.thumbnail_360_url.substring(0,4) + "s" + video.thumbnail_360_url.substring(4,video.thumbnail_360_url.length);
 	  console.log(thumbnail)
 		$('#search-container').append(
 			"<div data-url='" + video.id +

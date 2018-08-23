@@ -31,5 +31,3 @@ function playVideo(vid){
   console.log("in playVideo funtion",vidURL);
   $('#player').html("<iframe width='560' height='315' src='https://www.dailymotion.com/embed/video/" + vidURL + "?autoPlay=1' frameborder='0' allowfullscreen='' allow='autoplay' />");
 }
-
-<iframe frameborder="0" width="480" height="270" src="//www.dailymotion.com/embed/video/x5msc05?autoPlay=1" allowfullscreen="" allow="autoplay"></iframe>

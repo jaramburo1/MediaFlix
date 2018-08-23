@@ -29,5 +29,5 @@ var handleAPIResponse = function(response) {
 function playVideo(vid){
   var vidURL = vid.getAttribute("data-url");
   console.log("in playVideo funtion",vidURL);
-  $('#player').html("<iframe width='560' height='315' src='https://www.youtube.com/embed/" + vidURL + "?autoplay=1' frameborder='0' allowfullscreen />");
+  $('#player').html("<iframe width='560' height='315' src='http://www.dailymotion.com/embed/video/" + vidURL + "?autoplay=1' frameborder='0' allowfullscreen />");
 }

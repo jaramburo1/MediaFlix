@@ -9,7 +9,7 @@ function search() {
   
   DM.api('/videos', {
   search: q,
-  fields: 'title,thumbnail_360_url'
+  fields: 'id,title,thumbnail_360_url'
 }, handleAPIResponse);
 }
 
@@ -18,7 +18,7 @@ var handleAPIResponse = function(response) {
   for(var i = 0; i < response.list.length; i++){
       var video = response.list[i];
 		$('#search-container').append(
-			"<div data-url='" + video.videoId +
+			"<div data-url='" + video.id +
       "'onclick='playVideo(this)' style='cursor:pointer;width:500px;'>" + video.title + 
       "<br />" + "<img src='" + video.thumbnail_360_url + "' />" +
       "</div>"

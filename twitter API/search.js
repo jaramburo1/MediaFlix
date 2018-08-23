@@ -19,7 +19,7 @@ var handleAPIResponse = function(response) {
       var video = response.list[i];
 	  var thumbnail = video.thumbnail_360_url.substring(0,4) + "s" + video.thumbnail_360_url.substring(5,video.thumbnail_360_url.length);
 	  console.log(thumbnail)
-		$('#search-container').append(
+		$('#search-container').html(
 			"<div data-url='" + video.id +
       "'onclick='playVideo(this)' style='cursor:pointer;width:500px;'>" + video.title + 
       "<br />" + "<img src='" + video.thumbnail_360_url + "' />" +

@@ -20,7 +20,7 @@ var handleAPIResponse = function(response) {
 		$('#search-container').append(
 			"<div data-url='" + video.videoId +
       "'onclick='playVideo(this)' style='cursor:pointer;width:500px;'>" + video.title + 
-      "<br />" + "<img src='" + thumbnail_360_url + "' />" +
+      "<br />" + "<img src='" + video.thumbnail_360_url + "' />" +
       "</div>"
 		);
 	}

@@ -17,7 +17,6 @@ var handleAPIResponse = function(response) {
   //alert(response.list[0].title);
   $('#search-container').empty();
   for(var i = 0; i < response.list.length; i++){
-	  
       var video = response.list[i];
 	  var thumbnail = video.thumbnail_360_url.substring(0,4) + "s" + video.thumbnail_360_url.substring(4,video.thumbnail_360_url.length);
 	  console.log(thumbnail)

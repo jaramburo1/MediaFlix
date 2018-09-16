@@ -25,7 +25,7 @@ function search() {
 	  "<figure>" + 
       "<img src='" + video.thumbnails.default.url + "' />" +
 	  "<figcaption>" + video.title + 
-	  "<br />" + video.description + "</figcaption>" +
+	  "<br />" + video.description + "</figcaption>"  +
 	  "</figure>" +
       "</div>"
 		);

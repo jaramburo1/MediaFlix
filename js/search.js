@@ -17,13 +17,13 @@ function search() {
     var str = JSON.stringify(response.result);
     $('#results-container').empty();
     for(var i = 0; i < response.result.items.length; i++){
-      var video = response.result.items[i].snippet;
+      var video = response.result.items[i];
 		$('#results-container').append(
 			"<div data-url='" + response.result.items[i].id.videoId +
       "'onclick='playVideo(this)'>" + 
 	  "<figure id='figure-search-results'>" + 
       "<img src='" + video.thumbnails.medium.url + "' />" +
-	  "<figcaption>" + "<h3>" + video.title + "</h3>" + video.description + "(" + video.contentDetails.duration + ")" + "</figcaption>"  +
+	  "<figcaption>" + "<h3>" + video.snippet.title + "</h3>" + video.snippet.description + "(" + video.contentDetails.duration + ")" + "</figcaption>"  +
 	  "</figure>" +
       "</div>"
 		);

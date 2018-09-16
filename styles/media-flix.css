@@ -5,6 +5,7 @@ figure{
 	margin: 5px;
     padding: 5px;
 	display:grid;
+	grid-column-gap:5px;
 	grid-template-columns: 210px 1fr;
 }
 figure img{
@@ -33,7 +34,6 @@ main{
 	grid-template-areas:
 	"header header header"
 	"search content related"
-	". feed ."
 	"footer footer footer"
 }
 header{
@@ -45,7 +45,9 @@ footer{
 #search-container{
 	grid-area:search;
 }
-#player-container{
+#content-container{
+	display:grid;
+	grid-template-rows:1fr 2fr;
 	grid-area:content;
 }
 #related-container{

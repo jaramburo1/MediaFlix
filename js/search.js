@@ -23,7 +23,7 @@ function search() {
       "'onclick='playVideo(this)'>" + 
 	  "<figure id='figure-search-results'>" + 
       "<img src='" + video.thumbnails.medium.url + "' />" +
-	  "<figcaption>" + "<h3>" + video.title + "</h3>" + video.description + "</figcaption>"  +
+	  "<figcaption>" + "<h3>" + video.title + "</h3>" + video.description + "(" + video.contentDetails.duration + ")" + "</figcaption>"  +
 	  "</figure>" +
       "</div>"
 		);

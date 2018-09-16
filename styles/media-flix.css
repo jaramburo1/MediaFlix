@@ -1,16 +1,17 @@
 figure{
 	margin: 5px;
-    width: 700px;
+    width: 500px;
     padding: 5px;
 }
 figure img{
 	display: inline-block;
     margin: 5px;
     vertical-align: text-top;
+	width:240px;
 }
 figure figcaption{
 	display: inline-block;
-    width: 560px;
+    width: 250px;
     margin: 5px;
     vertical-align: text-top;
 }

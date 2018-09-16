@@ -1,23 +1,24 @@
 figure{
 	margin: 5px;
-    width: 500px;
+    width: 600px;
     padding: 5px;
 }
 figure img{
 	display: inline-block;
     margin: 5px;
     vertical-align: text-top;
-	width:220px;
+	width:210px;
 }
 figure figcaption{
 	display: inline-block;
-    width: 260px;
+    width: 380px;
     margin: 5px;
     vertical-align: text-top;
 	font-size: 1.3rem;
 }
 figure figcaption h3{
-	
+	margin: 0px;
+	padding: 0px;
 }
 #search-container div{
 	cursor:pointer;

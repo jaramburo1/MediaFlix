@@ -9,27 +9,43 @@ function search() {
   var request = gapi.client.youtube.search.list({
     q: q,
     part: 'snippet',
-    maxResults:20,
-    type:"video"
+    maxResults: 20,
+    type: "video"
   });
-
-  request.execute(function(response) {
-    var str = JSON.stringify(response.result);
+var videoIDs = '';
+  request.execute(function (response) {
+   // var str = JSON.stringify(response.result);
+    
     $('#results-container').empty();
-    for(var i = 0; i < response.result.items.length; i++){
-      var video = response.result.items[i];
-		$('#results-container').append(
-			"<div data-url='" + response.result.items[i].id.videoId +
-      "'onclick='playVideo(this)'>" + 
-	  "<figure id='figure-search-results'>" + 
-      "<img src='" + video.snippet.thumbnails.medium.url + "' />" +
-	  "<figcaption>" + "<h3>" + video.snippet.title + "</h3>" + video.snippet.description + "(" + video.contentDetails.duration + ")" + "</figcaption>"  +
-	  "</figure>" +
-      "</div>"
-		);
-	}
+    for (var i = 0; i < response.result.items.length; i++) {
+      //var video = response.result.items[i];
+      if (i == response.result.items.length) { videoIDs += response.result.items[i].id.videoId; }
+      else {
+        videoIDs += response.result.items[i].id.videoId + ",";
+      }
+    }
+    request = gapi.client.request({
+          'method': 'GET',
+          'path': '/youtube/v3/videos',
+          'params':  {'id': videoIDs,
+                 'part': 'snippet,contentDetails,statistics'}
+      });
+      request.execute(function(response){
+    $('#results-container').empty();
+    for (var i = 0; i < response.items.length; i++) {
+      var video = response.items[i];
+      $('#results-container').append(
+        "<div data-url='" + response.items[i].id +
+        "'onclick='playVideo(this)'>" +
+        "<figure id='figure-search-results'>" +
+        "<img src='" + video.snippet.thumbnails.medium.url + "' />" +
+        "<figcaption>" + "<h3>" + video.snippet.title + "</h3>" + video.snippet.description + "(" + video.contentDetails.duration + ")" + "</figcaption>" +
+        "</figure>" +
+        "</div>"
+        );
+    }
+    });
   });
-	
 }
 
 function playVideo(vid){

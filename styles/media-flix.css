@@ -50,7 +50,7 @@ footer{
 	grid-template-rows:1fr 2fr;
 	grid-template-areas:
 	"player"
-	"feed"
+	"feed";
 	grid-area:content;
 }
 #player-container{

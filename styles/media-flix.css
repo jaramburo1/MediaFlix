@@ -23,9 +23,34 @@ figure figcaption h3{
 	margin: 0px;
 	padding: 0px;
 }
-#results-container{
+#results-container div{
 	cursor:pointer;
 }
+main{
+	display:grid;
+	grid-template-columns:2fr 3fr 2fr;
+	grid-template-areas:
+	"header header header"
+	"search content related"
+	". feed ."
+	"footer footer footer"
+}
+header{
+	grid-area:header;
+}
+footer{
+	grid-area:footer;
+}
 #search-container{
-	width:610px;
+	grid-area:search;
+	/**width:610px;*/
+}
+#content-container{
+	grid-area:content;
+}
+#related-container{
+	grid-area:related;
+}
+#feed-container{
+	grid-area:feed;
 }

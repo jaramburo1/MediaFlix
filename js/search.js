@@ -22,7 +22,7 @@ function search() {
 			"<div data-url='" + response.result.items[i].id.videoId +
       "'onclick='playVideo(this)'>" + 
 	  "<figure id='figure-search-results'>" + 
-      "<img src='" + video.thumbnails.medium.url + "' />" +
+      "<img src='" + video.snippet.thumbnails.medium.url + "' />" +
 	  "<figcaption>" + "<h3>" + video.snippet.title + "</h3>" + video.snippet.description + "(" + video.contentDetails.duration + ")" + "</figcaption>"  +
 	  "</figure>" +
       "</div>"

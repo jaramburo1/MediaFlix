@@ -23,6 +23,9 @@ figure figcaption h3{
 	margin: 0px;
 	padding: 0px;
 }
-#search-container div{
+#results-container{
 	cursor:pointer;
+}
+#search-container{
+	width:610px;
 }

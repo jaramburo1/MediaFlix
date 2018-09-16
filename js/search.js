@@ -15,11 +15,10 @@ function search() {
 
   request.execute(function(response) {
     var str = JSON.stringify(response.result);
-   // $('#search-container').html('<pre>' + str + '</pre>');
-    $('#search-container').empty();
+    $('#results-container').empty();
     for(var i = 0; i < response.result.items.length; i++){
       var video = response.result.items[i].snippet;
-		$('#search-container').append(
+		$('#results-container').append(
 			"<div data-url='" + response.result.items[i].id.videoId +
       "'onclick='playVideo(this)'>" + 
 	  "<figure>" + 

@@ -16,13 +16,16 @@ function search() {
   request.execute(function(response) {
     var str = JSON.stringify(response.result);
    // $('#search-container').html('<pre>' + str + '</pre>');
-    
+    $('#search-container').empty();
     for(var i = 0; i < response.result.items.length; i++){
       var video = response.result.items[i].snippet;
 		$('#search-container').append(
 			"<div data-url='" + response.result.items[i].id.videoId +
       "'onclick='playVideo(this)' style='cursor:pointer;width:500px;'>" + video.title + 
-      "<br />" + "<img src='" + video.thumbnails.medium.url + "' />" +
+	  "<figure>" +
+      "<br />" + "<img src='" + video.thumbnails.default.url + "' />" +
+	  "<br />" + "<figcaption>" + video.description + "</figcaption>" +
+	  "</figure>" +
       "</div>"
 		);
 	}

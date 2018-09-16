@@ -21,10 +21,11 @@ function search() {
       var video = response.result.items[i].snippet;
 		$('#search-container').append(
 			"<div data-url='" + response.result.items[i].id.videoId +
-      "'onclick='playVideo(this)' style='cursor:pointer;width:500px;'>" + video.title + 
-	  "<figure>" +
-      "<br />" + "<img src='" + video.thumbnails.default.url + "' />" +
-	  "<br />" + "<figcaption>" + video.description + "</figcaption>" +
+      "'onclick='playVideo(this)' style='cursor:pointer;width:500px;'>" + 
+	  "<figure>" + 
+      "<img src='" + video.thumbnails.default.url + "' />" +
+	  "<figcaption>" + video.title + 
+	  "<br />" + video.description + "</figcaption>" +
 	  "</figure>" +
       "</div>"
 		);

@@ -21,7 +21,7 @@ function search() {
 		$('#results-container').append(
 			"<div data-url='" + response.result.items[i].id.videoId +
       "'onclick='playVideo(this)'>" + 
-	  "<figure>" + 
+	  "<figure id='figure-search-results'>" + 
       "<img src='" + video.thumbnails.medium.url + "' />" +
 	  "<figcaption>" + "<h3>" + video.title + "</h3>" + video.description + "</figcaption>"  +
 	  "</figure>" +

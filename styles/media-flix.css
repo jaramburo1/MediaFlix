@@ -3,8 +3,9 @@ body{
 }
 figure{
 	margin: 5px;
-    width: 600px;
     padding: 5px;
+	display:grid;
+	grid-template-columns: 210px 1fr;
 }
 figure img{
 	display: inline-block;
@@ -23,7 +24,7 @@ figure figcaption h3{
 	margin: 0px;
 	padding: 0px;
 }
-#results-container div{
+#figure-search-results{
 	cursor:pointer;
 }
 main{
@@ -43,7 +44,6 @@ footer{
 }
 #search-container{
 	grid-area:search;
-	/**width:610px;*/
 }
 #player-container{
 	grid-area:content;

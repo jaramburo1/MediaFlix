@@ -45,7 +45,7 @@ footer{
 	grid-area:search;
 	/**width:610px;*/
 }
-#content-container{
+#player-container{
 	grid-area:content;
 }
 #related-container{

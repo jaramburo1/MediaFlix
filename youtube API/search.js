@@ -24,7 +24,7 @@ function search() {
       "'onclick='playVideo(this)'>" + 
 	  "<figure>" + 
       "<img src='" + video.thumbnails.medium.url + "' />" +
-	  "<figcaption>" + video.title + 
+	  "<figcaption>" + "<h3>" + video.title + "</h3>" +
 	  "<br />" + video.description + "</figcaption>"  +
 	  "</figure>" +
       "</div>"

@@ -1,14 +1,14 @@
-.figure{
+figure{
 	margin: 5px;
     width: 700px;
     padding: 5px;
 }
-.figure img{
+figure img{
 	display: inline-block;
     margin: 5px;
     vertical-align: text-top;
 }
-.figure figcaption{
+figure figcaption{
 	display: inline-block;
     width: 560px;
     margin: 5px;

@@ -1,3 +1,6 @@
+body{
+	font-family: Roboto, Arial, sans-serif;
+}
 figure{
 	margin: 5px;
     width: 600px;
@@ -11,7 +14,7 @@ figure img{
 }
 figure figcaption{
 	display: inline-block;
-    width: 380px;
+    width: 370px;
     margin: 5px;
     vertical-align: text-top;
 	font-size: 12pt;

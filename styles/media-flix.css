@@ -48,11 +48,17 @@ footer{
 #content-container{
 	display:grid;
 	grid-template-rows:1fr 2fr;
+	grid-template-areas:
+	"player"
+	"feed"
 	grid-area:content;
 }
-#related-container{
-	grid-area:related;
+#player-container{
+	grid-area:player;
 }
 #feed-container{
 	grid-area:feed;
+}
+#related-container{
+	grid-area:related;
 }

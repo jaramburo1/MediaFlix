@@ -84,7 +84,7 @@ function playVideo(vid){
   var desc = videos.find((elem)=>{return elem.id==vidURL;}).ldescription;
   //desc = $.parseHTML(desc);
   //desc = desc.replace(/href/g,'&lt;');
-	  var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+	  var exp = /(\b(https?|http|www|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
     var desc = desc.replace(exp, "<a href='$1' target='_blank'>$1</a>");
     
   console.log(desc);

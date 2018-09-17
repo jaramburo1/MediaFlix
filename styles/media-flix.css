@@ -60,7 +60,11 @@ footer{
 }
 #feed-container{
 	grid-area:feed;
+	justify-self:left;
 }
 #related-container{
 	grid-area:related;
+}
+pre{
+	white-space: pre-wrap;
 }

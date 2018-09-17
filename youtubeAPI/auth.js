@@ -42,7 +42,7 @@ function handleAuthResult(authResult) {
   } else {
     // Make the #login-link clickable. Attempt a non-immediate OAuth 2.0
     // client flow. The current function is called when that flow completes.
-    $('#login-link').click(function() {
+    $('#youtube-login-link').click(function() {
       gapi.auth.authorize({
         client_id: OAUTH2_CLIENT_ID,
         scope: OAUTH2_SCOPES,

@@ -82,8 +82,13 @@ var videoIDs = '';
 function playVideo(vid){
   var vidURL = vid.getAttribute("data-url");
   var desc = videos.find((elem)=>{return elem.id==vidURL;}).ldescription;
+  //desc = $.parseHTML(desc);
+  //desc = desc.replace(/href/g,'&lt;');
+	  var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+    var desc = desc.replace(exp, "<a href='$1' target='_blank'>$1</a>");
+    
   console.log(desc);
   console.log("in playVideo funtion",vidURL);
   $('#player').html("<iframe width='560' height='315' src='https://www.youtube.com/embed/" + vidURL + "?autoplay=1' frameborder='0' allowfullscreen />");
-  $('#feeds').html(desc);
+  $('#feeds').html(`<pre><div style="text-align:left">${desc}</div></pre>`);
 }

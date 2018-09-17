@@ -54,7 +54,7 @@ function playVideo(vid){
   var vidDescription = vid.getAttribute("data-description");
   console.log("in playVideo funtion",vidURL);
   $('#player').html("<iframe width='560' height='315' src='https://www.youtube.com/embed/" + vidURL + "?autoplay=1' frameborder='0' allowfullscreen />");
-  $('#player').html("<p>" + vidDescription + "</p>");
+  $('#feeds').html("<p>" + vidDescription + "</p>");
 }
 
 

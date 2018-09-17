@@ -35,7 +35,8 @@ var videoIDs = '';
     for (var i = 0; i < response.items.length; i++) {
       var video = response.items[i];
       $('#results-container').append(
-        "<div data-url='" + response.items[i].id +
+        "<div data-url='" + video.id +
+		"<div data-description='" + video.snippet.description +
         "'onclick='playVideo(this)'>" +
         "<figure id='figure-search-results'>" +
         "<img src='" + video.snippet.thumbnails.medium.url + "' />" +
@@ -50,6 +51,24 @@ var videoIDs = '';
 
 function playVideo(vid){
   var vidURL = vid.getAttribute("data-url");
+  var vidDescription = vid.getAttribute("data-description");
   console.log("in playVideo funtion",vidURL);
   $('#player').html("<iframe width='560' height='315' src='https://www.youtube.com/embed/" + vidURL + "?autoplay=1' frameborder='0' allowfullscreen />");
+  $('#player').html("<p>" + vidDescription + "</p>");
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

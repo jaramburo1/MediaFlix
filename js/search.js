@@ -10,7 +10,8 @@ var video = {};
 	title:'',
 	videoURL:'',
 	thumbnail:'',
-	description:'',
+	sdescription:'',
+  ldescription:'',
 	duration:''
 };
  */
@@ -39,7 +40,8 @@ var videoIDs = '';
       id:vid.id.videoId,
       title:vid.snippet.title,
       videoURL:vidURL,
-      description:vid.snippet.description,
+      sdescription:vid.snippet.description,
+      ldescription:'',
       thumbnail:vid.snippet.thumbnails.medium.url,
       duration:''
       };
@@ -62,12 +64,13 @@ var videoIDs = '';
       vid = response.items[i];
       console.log(videos[i].id);
 	  videos[i].duration = vid.contentDetails.duration;
+    videos[i].ldescription = vid.snippet.description;
       $('#results-container').append(
         "<div data-url='" + videos[i].id + "'" +
         "onclick='playVideo(this)'>" +
         "<figure id='figure-search-results'>" +
         "<img src='" + videos[i].thumbnail + "' />" +
-        "<figcaption>" + "<h3>" + videos[i].title + "</h3>" + videos[i].description + "(" + videos[i].duration + ")" + "</figcaption>" +
+        "<figcaption>" + "<h3>" + videos[i].title + "</h3>" + videos[i].sdescription + "(" + videos[i].duration + ")" + "</figcaption>" +
         "</figure>" +
         "</div>"
         );
@@ -78,7 +81,8 @@ var videoIDs = '';
 
 function playVideo(vid){
   var vidURL = vid.getAttribute("data-url");
-  desc = videos.find((elem)=>{elem.id=vidURL});
+  var desc = videos.find((elem)=>{return elem.id==vidURL;}).ldescription;
+  console.log(desc);
   console.log("in playVideo funtion",vidURL);
   $('#player').html("<iframe width='560' height='315' src='https://www.youtube.com/embed/" + vidURL + "?autoplay=1' frameborder='0' allowfullscreen />");
   $('#feeds').html(desc);

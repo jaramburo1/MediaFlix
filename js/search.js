@@ -94,18 +94,19 @@ var videoIDs = '';
     for (var i = 0; i < response.items.length; i++) {
       var vid = response.items[i];
 	  videos[i].duration = vid.contentDetails.duration;
-      document.write($('#results-container').append(
-        `<div data-video="${video[i]}"
+    }
+    });
+  });
+  videos.map((elem)=>{
+  $('#results-container').append(
+        `<div data-video="${elem}"
         onclick='playVideo(this)'>
         <figure id='figure-search-results'>
         <img src='${video.snippet.thumbnails.medium.url}' />
         <figcaption><h3>${video.snippet.title}</h3>${video.snippet.description} (${video.contentDetails.duration})</figcaption>
         </figure>
         </div>`
-        ));
-    }
-    });
-  });
+  );}
 }
 
 function playVideo(vid){

@@ -48,7 +48,6 @@ footer{
 #content-container{
 	display:grid;
 	grid-template-rows:max-content;
-	grid-template-columns:max-content;
 	grid-template-areas:
 	"player"
 	"feed";

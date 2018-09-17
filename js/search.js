@@ -26,9 +26,9 @@ var videoIDs = '';
     
     $('#results-container').empty();
     for (var i = 0; i < response.result.items.length; i++) {
-      var video = response.result.items[i];
-	  vidURL = 'https://www.youtube.com/embed/' + video.id.videoID;
-	  video = {video.id.videoID,video.snippet.title,vidURL,video.snippet.description,video.snippet.thumbnails[medium].url,''};
+      var vid = response.result.items[i];
+	  vidURL = 'https://www.youtube.com/embed/' + vid.id.videoID;
+	  video = {vid.id.videoID,vid.snippet.title,vidURL,vid.snippet.description,vid.snippet.thumbnails[medium].url,''};
 	  videos.push(video);
       if (i == response.result.items.length) { videoIDs += response.result.items[i].id.videoId; }
       else {
@@ -44,8 +44,8 @@ var videoIDs = '';
       request.execute(function(response){
     $('#results-container').empty();
     for (var i = 0; i < response.items.length; i++) {
-      var video = response.items[i];
-	  videos[i].duration = video.contentDetails.duration;
+      var vid = response.items[i];
+	  videos[i].duration = vid.contentDetails.duration;
       $('#results-container').append(
         `<div data-video="${video[i]}"
         onclick='playVideo(this)'>

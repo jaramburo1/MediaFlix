@@ -36,7 +36,7 @@ var videoIDs = '';
       var video = response.items[i];
       $('#results-container').append(
         "<div data-url='" + video.id +
-		"<div data-description='" + video.snippet.description +
+		"'<div data-description='" + video.snippet.description +
         "'onclick='playVideo(this)'>" +
         "<figure id='figure-search-results'>" +
         "<img src='" + video.snippet.thumbnails.medium.url + "' />" +

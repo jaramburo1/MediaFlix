@@ -13,7 +13,6 @@ var video = {};
 	sdescription:'',
   ldescription:'',
 	duration:'',
-	embedLink: ''
 };
  */
 var videos = [];
@@ -66,7 +65,7 @@ var videoIDs = '';
     $('#results-container').empty();
     for (var i = 0; i < response.items.length; i++) {
       vid = response.items[i];
-      console.log(videos[i].id);
+      //console.log(videos[i].id);
 	  videos[i].duration = vid.contentDetails.duration;
     videos[i].ldescription = vid.snippet.description;
     }
@@ -96,7 +95,7 @@ var videoIDs = '';
 		  videos.push(video);
 	}
 });
-
+console.log(videos);
 	// Display search results
 	for(var i = 0; i < videos.length; i++){
 	$('#results-container').append(

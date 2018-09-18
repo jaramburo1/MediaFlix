@@ -99,6 +99,7 @@ var videoIDs = '';
 });
 
 	// Display search results
+	for(var i = 0; i < videos.length; i++){
 	$('#results-container').append(
         "<div data-url='" + videos[i].id + "'" +
         "onclick='playVideo(this)'>" +
@@ -107,7 +108,7 @@ var videoIDs = '';
         "<figcaption>" + "<h3>" + videos[i].title + "</h3>" + videos[i].sdescription + "(" + videos[i].duration + ")" + "</figcaption>" +
         "</figure>" +
         "</div>"
-        );
+	);}
 }
 
 function playVideo(vid){

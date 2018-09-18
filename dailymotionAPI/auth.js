@@ -1,4 +1,3 @@
-function authorize(){
   window.dmAsyncInit = function()
   {
     DM.init({ apiKey: '28609fecadb89fda8f7c', status: true, cookie: true });
@@ -11,6 +10,5 @@ function authorize(){
     e.src = 'all.js';
 
     var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(e, s);
+    //s.parentNode.insertBefore(e, s);
   }());
-}

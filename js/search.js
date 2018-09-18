@@ -80,11 +80,10 @@ var videoIDs = '';
 }, (response) => {
   //alert(response.list[0].title);
   $('#search-container').empty();
-  console.log(response.list);
   for(var i = 0; i < response.list.length; i++){
       var video = response.list[i];
 	  var thumbnail = video.thumbnail_240_url.substring(0,4) + "s" + video.thumbnail_240_url.substring(4,video.thumbnail_240_url.length);
-		  var vidURL = 'https://www.dailymotion.com/embed/video/' + vid.id.videoId;
+		  var vidURL = 'https://www.dailymotion.com/embed/video/' + video.id.videoId;
 		  video = {
 		  id:video.id,
 		  title:video.title,

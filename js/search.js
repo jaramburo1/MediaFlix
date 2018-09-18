@@ -12,7 +12,8 @@ var video = {};
 	thumbnail:'',
 	sdescription:'',
   ldescription:'',
-	duration:''
+	duration:'',
+	embedLink: ''
 };
  */
 var videos = [];
@@ -21,12 +22,15 @@ var videos = [];
 function search() {
   videos.length = 0;
   var q = $('#query').val();
+  
+// Youtube video search
   var request = gapi.client.youtube.search.list({
     q: q,
     part: 'snippet',
     maxResults: 20,
     type: "video"
   });
+
 var videoIDs = '';
   request.execute(function (response) {
    // var str = JSON.stringify(response.result);
@@ -56,7 +60,7 @@ var videoIDs = '';
           'method': 'GET',
           'path': '/youtube/v3/videos',
           'params':  {'id': videoIDs,
-                 'part': 'snippet,contentDetails,statistics'}
+          'part': 'snippet,contentDetails,statistics'}
       });
       request.execute(function(response){
     $('#results-container').empty();
@@ -65,7 +69,37 @@ var videoIDs = '';
       console.log(videos[i].id);
 	  videos[i].duration = vid.contentDetails.duration;
     videos[i].ldescription = vid.snippet.description;
-      $('#results-container').append(
+    }
+    });
+  });
+  
+  // Dailymotion video search
+  DM.api('/videos', {
+  search: q,
+  fields: 'id,title,thumbnail_240_url,description,duration,likes_total,views_total,url'
+}, (response) => {
+  //alert(response.list[0].title);
+  $('#search-container').empty();
+  console.log(response.list);
+  for(var i = 0; i < response.list.length; i++){
+      var video = response.list[i];
+	  var thumbnail = video.thumbnail_240_url.substring(0,4) + "s" + video.thumbnail_240_url.substring(4,video.thumbnail_240_url.length);
+		  var vidURL = 'https://www.dailymotion.com/embed/video/' + vid.id.videoId;
+		  video = {
+		  id:video.id,
+		  title:video.title,
+		  videoURL:vidURL,
+		  sdescription:video.description,
+		  ldescription:video.description,
+		  thumbnail:thumbnail,
+		  duration:video.duration
+		  };
+		  videos.push(video);
+	}
+});
+
+	// Display search results
+	$('#results-container').append(
         "<div data-url='" + videos[i].id + "'" +
         "onclick='playVideo(this)'>" +
         "<figure id='figure-search-results'>" +
@@ -74,9 +108,6 @@ var videoIDs = '';
         "</figure>" +
         "</div>"
         );
-    }
-    });
-  });
 }
 
 function playVideo(vid){
@@ -84,11 +115,11 @@ function playVideo(vid){
   var desc = videos.find((elem)=>{return elem.id==vidURL;}).ldescription;
   //desc = $.parseHTML(desc);
   //desc = desc.replace(/href/g,'&lt;');
-	  var exp = /(\b(https?|http|www|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+	  var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
     var desc = desc.replace(exp, "<a href='$1' target='_blank'>$1</a>");
     
   console.log(desc);
   console.log("in playVideo funtion",vidURL);
-  $('#player').html("<iframe width='560' height='315' src='https://www.youtube.com/embed/" + vidURL + "?autoplay=1' frameborder='0' allowfullscreen />");
+  $('#player').html("<iframe width='560' height='315' src='" + vidURL + "?autoplay=1' frameborder='0' allowfullscreen />");
   $('#feeds').html(`<pre><div style="text-align:left">${desc}</div></pre>`);
 }

@@ -62,13 +62,13 @@ var videoIDs = '';
       request.execute(function(response){
     for (var i = 0; i < response.items.length; i++) {
       vid = response.items[i];
-      //console.log(videos[i].id);
+      
+    //console.log(videos[i].duration);
 	  videos[i].duration = vid.contentDetails.duration;
     videos[i].ldescription = vid.snippet.description;
     }
     });
-  });
-  
+    
   // Dailymotion video search
   DM.api('/videos', {
   search: q,
@@ -79,11 +79,12 @@ var videoIDs = '';
       var video = response.list[i];
 	  var thumbnail = video.thumbnail_240_url.substring(0,4) + "s" + video.thumbnail_240_url.substring(4,video.thumbnail_240_url.length);
 		  var vidURL = 'https://www.dailymotion.com/embed/video/' + video.id;
+      var sdescription = video.description.substring(0,143);
 		  video = {
 		  id:video.id,
 		  title:video.title,
 		  videoURL:vidURL,
-		  sdescription:video.description,
+		  sdescription:sdescription,
 		  ldescription:video.description,
 		  thumbnail:thumbnail,
 		  duration:video.duration
@@ -91,7 +92,6 @@ var videoIDs = '';
 		  videos.push(video);
 	}
   for(var i = 0; i < videos.length; i++){
-    console.log(videos[i]);
     // Display search results
 	$('#results-container').append(
         "<div data-url='" + videos[i].id + "'" +
@@ -103,8 +103,14 @@ var videoIDs = '';
         "</div>"
         );
   }
+  $('#results-container div').click(function(e){
+  var $target = $('html,body');
+  $target.animate({scrollTop: 0}, 1000);
+});
+  console.log(videos);
 }
 );
+  });
 }
 
 function playVideo(vid){

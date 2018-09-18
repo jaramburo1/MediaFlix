@@ -9,21 +9,23 @@ function search() {
   
   DM.api('/videos', {
   search: q,
-  fields: 'id,title,thumbnail_360_url'
+  fields: 'id,title,thumbnail_240_url,description,duration,likes_total,views_total'
 }, handleAPIResponse);
 }
 
 var handleAPIResponse = function(response) {
   //alert(response.list[0].title);
   $('#search-container').empty();
+  console.log(response.list);
   for(var i = 0; i < response.list.length; i++){
       var video = response.list[i];
-	  var thumbnail = video.thumbnail_360_url.substring(0,4) + "s" + video.thumbnail_360_url.substring(4,video.thumbnail_360_url.length);
+	  var thumbnail = video.thumbnail_240_url.substring(0,4) + "s" + video.thumbnail_240_url.substring(4,video.thumbnail_240_url.length);
 	  console.log(thumbnail)
 		$('#search-container').append(
 			"<div data-url='" + video.id +
       "'onclick='playVideo(this)' style='cursor:pointer;width:500px;'>" + video.title + 
-      "<br />" + "<img src='" + thumbnail + "' />" +
+      "<br />" + "<img src='" + thumbnail + "' width='210px'/>" +
+      "<br />" + "<p>" + video.description + "</p>" +
       "</div>"
 		);
 	}
